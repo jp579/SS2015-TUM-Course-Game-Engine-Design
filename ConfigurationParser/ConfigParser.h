@@ -10,7 +10,12 @@ public:
 	};
 	void load(std::string str);
 
+	ConfigParser();
+	~ConfigParser();
 private:
+	bool listStringCompare(std::string str);
+
+
 	float spinning, spinSpeed,
 			terrainWidth, terrainDepth, terrainHeight;
 
@@ -18,7 +23,5 @@ private:
 
 	std::string terrainPath;
 
-	ConfigParser();
-	~ConfigParser();
 };
 
