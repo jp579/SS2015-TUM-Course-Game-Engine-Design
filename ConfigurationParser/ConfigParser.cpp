@@ -55,6 +55,7 @@ void ConfigParser::load(std::string str){
 			}
 			else if (word.compare("terrainPath") == 0){
 				iss >> terrainPath;
+				//std::cout << terrainPath << std::endl;
 			}
 			else if (word.compare("terrainDepth") == 0){
 				iss >> terrainDepth;
