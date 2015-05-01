@@ -1,9 +1,8 @@
 #include "ConfigParser.h"
 #include <string>
 #include <fstream>
-#include <vector>
-
-std::vector<std::string> s = {"spinning", "spinSpeed", "backgroundColor", "terrainPath", "terrainWidth", "terrainDepth", "terrainHeight"};
+#include <cstdlib>
+#include <sstream>
 
 
 ConfigParser::ConfigParser()
@@ -12,40 +11,68 @@ ConfigParser::ConfigParser()
 	
 
 }
-
-
 ConfigParser::~ConfigParser()
 {
 
 
 }
-
-
-bool ConfigParser::listStringCompare(std::string str){
-	return (std::find(s.begin(), s.end(), str) != s.end());
-}
-
-
 void ConfigParser::load(std::string str){
+	// to read the values  
 	int skip = 0;
+
 	// stream to read file
 	std::ifstream ifs(str);
 
 	// check if file is open
 	if (ifs.is_open()){
 		std::cout << "file is open" << std::endl;
-
-		// read words and print them in the console
+		
+		// string for line
+		std::string line;
+		// string for the first word in the line
 		std::string word;
 
-		// read every word in the file
-		while (ifs >> word){
-			if (listStringCompare(word))
-			{
-			
+
+		int i = 0;
+		// loop line by line
+		while (getline(ifs,line)){
+			//get the components in the lin
+			std::istringstream iss(line);
+			iss >> word;
+
+			if (word.compare("spinning") == 0){
+				iss >> spinning;
+				//std::cout << "spinning " << spinning << std::endl;
 			}
-			
-			
+
+			else if (word.compare("spinSpeed") == 0){
+				iss >> spinSpeed;
+				//std::cout << "spinSpeed " << spinSpeed << std::endl;
+			}
+
+			else if (word.compare("backgroundColor") == 0){
+				iss >> color.r >> color.g >> color.b;
+				//std::cout << color.r << " " << color.g << " " << color.b << std::endl;
+			}
+			else if (word.compare("terrainPath") == 0){
+				iss >> terrainPath;
+			}
+			else if (word.compare("terrainDepth") == 0){
+				iss >> terrainDepth;
+			}
+			else if (word.compare("terrainWidth") == 0){
+				iss >> terrainWidth;
+			}
+			else if (word.compare("terrainHeight") == 0){
+				iss >> terrainHeight;
+			}
+			else {
+				if (!word.empty())
+				std::cout << "Error: unknown Parameter!" << std::endl;
+			}
+			//empty word
+			word = "";
+
 		}
 	}	
 }

@@ -7,15 +7,20 @@ class ConfigParser
 public:
 	struct Color{
 		float r,g,b;
-	};
+	} color;
+	
+	// getters
+	float getSpinning();
+	float getSpinSpeed();
+	
+
+
 	void load(std::string str);
 
 	ConfigParser();
 	~ConfigParser();
 private:
-	bool listStringCompare(std::string str);
-
-
+	
 	float spinning, spinSpeed,
 			terrainWidth, terrainDepth, terrainHeight;
 
