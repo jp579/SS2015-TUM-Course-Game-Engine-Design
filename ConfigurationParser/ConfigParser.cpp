@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <sstream>
 
-
 ConfigParser::ConfigParser()
 {
 	
@@ -51,7 +50,7 @@ void ConfigParser::load(std::string str){
 			}
 
 			else if (word.compare("backgroundColor") == 0){
-				iss >> color.r >> color.g >> color.b;
+				iss >> backgroundColor.r >> backgroundColor.g >> backgroundColor.b;
 				//std::cout << color.r << " " << color.g << " " << color.b << std::endl;
 			}
 			else if (word.compare("terrainPath") == 0){
@@ -75,4 +74,25 @@ void ConfigParser::load(std::string str){
 
 		}
 	}	
+}
+float ConfigParser::getSpinning(){
+	return spinning;
+}
+float ConfigParser::getSpinSpeed(){
+	return spinSpeed;
+}
+float ConfigParser::getTerrainWidth(){
+	return terrainWidth;
+}
+float ConfigParser::getTerrainDepth(){
+	return terrainDepth;
+}
+float ConfigParser::getTerrainHeight(){
+	return terrainHeight;
+}
+ConfigParser::Color ConfigParser::getBackgroundColor(){
+	return backgroundColor;
+}
+std::string ConfigParser::getTerrainPath(){
+	return terrainPath;
 }

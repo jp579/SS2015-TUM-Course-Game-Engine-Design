@@ -5,22 +5,26 @@
 class ConfigParser
 {
 public:
-	struct Color{
+	struct Color {
 		float r,g,b;
-	} color;
+	};
 	
 	// getters
 	float getSpinning();
 	float getSpinSpeed();
-	
-
+	float getTerrainWidth();
+	float getTerrainDepth();
+	float getTerrainHeight();
+	Color getBackgroundColor();
+	std::string getTerrainPath();
 
 	void load(std::string str);
 
 	ConfigParser();
 	~ConfigParser();
+
+
 private:
-	
 	float spinning, spinSpeed,
 			terrainWidth, terrainDepth, terrainHeight;
 
