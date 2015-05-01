@@ -74,7 +74,14 @@ void ConfigParser::load(std::string str){
 			word = "";
 
 		}
-	}	
+	}
+	ifs.close();
+	if (!ifs.is_open())
+	{
+		std::cout << "file closed...OK" << std::endl << std::endl;
+	}
+	else
+		std::cout << "Error: file not closed!" << std::endl;
 }
 float ConfigParser::getSpinning(){
 	return spinning;
