@@ -28,7 +28,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		std::cout << *it << " ";
 	}
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl << "end"<< std::endl;
 	system("pause");
 	return 0;
 }

@@ -1,4 +1,6 @@
 #include "ConfigParser.h"
+#include <string>
+#include <fstream>
 
 ConfigParser::ConfigParser()
 {
